@@ -12,6 +12,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfig {
 
+  // Hard Codding the uses
   // @Bean
   // public InMemoryUserDetailsManager userDetailsManager() {
   // UserDetails admin = User.builder()
@@ -35,6 +36,7 @@ public class SecurityConfig {
   // return new InMemoryUserDetailsManager(admin, manager, employee);
   // }
 
+  // getting user from DB
   @Bean
   public UserDetailsManager userDetailsManager(DataSource dataSource) {
     // get the user and roles from the data base using users and authorities tables
