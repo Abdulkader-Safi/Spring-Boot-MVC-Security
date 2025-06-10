@@ -40,13 +40,19 @@ public class SecurityConfig {
 
     http
         .authorizeHttpRequests(conf -> conf
+            // Role base routes
+            .requestMatchers("/").hasRole("EMPLOYEE")
+            .requestMatchers("/leaders/**").hasRole("MANAGER")
+            .requestMatchers("/systems/**").hasRole("ADMIN")
             .anyRequest()
             .authenticated())
         .formLogin(form -> form
+            // Custom Login Form
             .loginPage("/auth/login")
             .loginProcessingUrl("/auth/login")
             .permitAll())
         .logout(logout -> logout
+            // Logout POST
             .permitAll());
 
     return http.build();

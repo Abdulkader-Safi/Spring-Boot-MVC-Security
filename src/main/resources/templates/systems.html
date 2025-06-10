@@ -14,7 +14,7 @@
   </head>
   <body>
     <div style="margin-top: 50px" class="container">
-      <h1>Home</h1>
+      <h1>System Page (For Admin Access Only)</h1>
       <h2>User: <span sec:authentication="principal.username"></span></h2>
       <h2>Roles: <span sec:authentication="principal.authorities"></span></h2>
 
@@ -23,9 +23,9 @@
       </form>
 
       <div class="btn-group mt-2">
-        <a href="/" class="btn btn-primary active">EMPLOYEE</a>
+        <a href="/" class="btn btn-primary">EMPLOYEE</a>
         <a href="/leaders" class="btn btn-primary">MANGER</a>
-        <a href="/systems" class="btn btn-primary">ADMIN</a>
+        <a href="/systems" class="btn btn-primary active">ADMIN</a>
       </div>
     </div>
 
