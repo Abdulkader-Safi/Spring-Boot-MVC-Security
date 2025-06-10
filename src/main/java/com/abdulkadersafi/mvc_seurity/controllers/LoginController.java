@@ -11,4 +11,9 @@ public class LoginController {
     public String loginForm() {
         return "login";
     }
+
+    @GetMapping("/403")
+    public String forbiddenRequest() {
+        return "forbidden-request";
+    }
 }

@@ -37,7 +37,6 @@ public class SecurityConfig {
 
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-
     http
         .authorizeHttpRequests(conf -> conf
             // Role base routes
@@ -46,6 +45,9 @@ public class SecurityConfig {
             .requestMatchers("/systems/**").hasRole("ADMIN")
             .anyRequest()
             .authenticated())
+        .exceptionHandling(conf -> conf
+            // Forbidden Request custom page
+            .accessDeniedPage("/auth/403"))
         .formLogin(form -> form
             // Custom Login Form
             .loginPage("/auth/login")
