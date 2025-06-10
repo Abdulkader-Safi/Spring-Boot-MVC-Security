@@ -31,7 +31,17 @@
                     <div
                       class="alert alert-danger text-danger col-xs-offset-1 col-xs-10"
                     >
-                      <i> Invalid username and/or password. </i>
+                      <i>Invalid username and/or password.</i>
+                    </div>
+                  </div>
+                </div>
+
+                <div th:if="${param.logout}" class="form-group">
+                  <div class="col-xs-15">
+                    <div
+                      class="alert alert-success text-success col-xs-offset-1 col-xs-10"
+                    >
+                      <i>You have been logged out.</i>
                     </div>
                   </div>
                 </div>
