@@ -1,9 +1,11 @@
+DROP TABLE IF EXISTS authorities;
+
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE
     IF NOT EXISTS users (
         username VARCHAR(50) NOT NULL,
-        password VARCHAR(50) NOT NULL,
+        password VARCHAR(68) NOT NULL,
         enabled TINYINT NOT NULL,
         PRIMARY KEY (username)
     );
@@ -11,11 +13,21 @@ CREATE TABLE
 INSERT INTO
     users
 VALUES
-    ("admin", "{noop}admin", 1),
-    ("manager", "{noop}manager", 1),
-    ("employee", "{noop}employee", 1);
-
-DROP TABLE IF EXISTS authorities;
+    (
+        "admin",
+        "{bcrypt}$2a$10$QwSaGdR/8b7nFARs6HKMjOw/uCnvx0l6G.pO4lnfeDiVpKXGyC6Hy",
+        1
+    ),
+    (
+        "manager",
+        "{bcrypt}$2a$10$kYZjy6W5qYbGyijcb4IOIOgyqM0BOmIfEGop93Vd83OPxB1ccGEcS",
+        1
+    ),
+    (
+        "employee",
+        "{bcrypt}$2a$10$tgBR0m5cbiZPxhzSt9/QKuyj/s7c6k8uxmKR.mOjAbrLYyqXlQdDK",
+        1
+    );
 
 CREATE TABLE
     IF NOT EXISTS authorities (
